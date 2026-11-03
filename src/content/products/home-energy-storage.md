@@ -42,3 +42,5 @@ Wall-mounted configurations suit installations with limited floor space. Stackab
 Our team can review the target module count, enclosure, BMS, communication and installation requirements before building a first article and moving the configuration into production.
 
 Contact us with the intended application, capacity range and system interface to discuss the next step.
+
+For mobility and lead-acid replacement projects, compare the [e-bike battery platform](/products/e-bike-battery-packs/) or the [12V LiFePO4 replacement platform](/products/12v-lifepo4-replacement/). Application examples across equipment types are collected in [applications](/applications/).

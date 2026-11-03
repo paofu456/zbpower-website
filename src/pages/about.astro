@@ -2,7 +2,6 @@
 import ContactCta from "../components/sections/ContactCta.astro";
 import PageHero from "../components/sections/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { makePageTitle } from "../lib/seo";
 
 const milestones = [
   {
@@ -42,7 +41,7 @@ const globalLocations = [
 ---
 
 <BaseLayout
-  title={makePageTitle("About")}
+  title="About ZBPOWER | Lithium Battery Manufacturer"
   description="Learn about ZBPOWER's history, battery engineering focus, manufacturing base, patents and global service network."
   image="/media/company/factory-aerial.jpg"
 >

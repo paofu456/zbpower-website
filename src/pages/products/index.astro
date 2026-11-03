@@ -4,13 +4,12 @@ import ContactCta from "../../components/sections/ContactCta.astro";
 import PageHero from "../../components/sections/PageHero.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getPublishedProducts } from "../../lib/products";
-import { makePageTitle } from "../../lib/seo";
 
 const products = await getPublishedProducts();
 ---
 
 <BaseLayout
-  title={makePageTitle("Products")}
+  title="Lithium Battery Packs | E-bike, 12V & Storage | ZBPOWER"
   description="Explore ZBPOWER lithium battery platforms for electric mobility, 12V lead-acid replacement and home energy storage."
   image="/media/company/factory-aerial.jpg"
 >

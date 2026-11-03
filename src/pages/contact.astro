@@ -2,7 +2,6 @@
 import PageHero from "../components/sections/PageHero.astro";
 import company from "../data/company.json";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { makePageTitle } from "../lib/seo";
 
 const phoneHref = company.phone.replace(/\s/g, "");
 const landlineHref = company.landline.replace(/\s/g, "");
@@ -20,7 +19,7 @@ const inputs = [
 ---
 
 <BaseLayout
-  title={makePageTitle("Contact")}
+  title="Contact ZBPOWER | Custom Battery Projects"
   description="Contact ZBPOWER to discuss an OEM or ODM lithium battery project, request product information or arrange a factory visit."
   image="/media/company/factory-aerial.jpg"
 >

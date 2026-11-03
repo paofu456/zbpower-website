@@ -43,3 +43,5 @@ The final pack is defined around the installation's voltage, capacity requiremen
 ## Production and testing
 
 Production takes place in Dongguan with incoming inspection, cell grading, pack assembly, aging and finished-product testing. Contact our team to discuss a replacement format or a new 12V platform.
+
+Projects focused on electric two-wheelers can review the [e-bike and e-motorcycle battery platform](/products/e-bike-battery-packs/); residential and small commercial systems are covered by the [home energy storage platform](/products/home-energy-storage/). Application examples are collected in [applications](/applications/).

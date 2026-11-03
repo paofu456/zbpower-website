@@ -2,7 +2,6 @@
 import ContactCta from "../components/sections/ContactCta.astro";
 import PageHero from "../components/sections/PageHero.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { makePageTitle } from "../lib/seo";
 
 const applications = [
   {
@@ -66,7 +65,7 @@ const inputs = [
 ---
 
 <BaseLayout
-  title={makePageTitle("Applications")}
+  title="Battery Applications | E-bike, Golf & Storage | ZBPOWER"
   description="Lithium battery applications for electric two-wheelers, golf carts, mobility devices, floor-care equipment, ride-on vehicles and energy storage."
   image="/media/applications/golf-cart.jpg"
 >

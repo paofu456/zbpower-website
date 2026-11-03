@@ -44,3 +44,5 @@ Typical projects include commuter e-bikes, cargo and utility bicycles, e-scooter
 Our team reviews the application, selects the cell and BMS approach, builds a first article, validates the configuration and then moves it into batch production in Dongguan.
 
 Contact us with the target voltage, capacity, enclosure dimensions and expected annual volume to begin a specification review.
+
+Projects built around lead-acid formats can compare the [12V LiFePO4 replacement platform](/products/12v-lifepo4-replacement/), while project examples across mobility and storage are collected in [applications](/applications/).
