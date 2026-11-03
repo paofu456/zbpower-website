@@ -1,0 +1,60 @@
+---
+import ProductCard from "../../components/product/ProductCard.astro";
+import ContactCta from "../../components/sections/ContactCta.astro";
+import PageHero from "../../components/sections/PageHero.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getPublishedProducts } from "../../lib/products";
+import { makePageTitle } from "../../lib/seo";
+
+const products = await getPublishedProducts();
+---
+
+<BaseLayout
+  title={makePageTitle("Products")}
+  description="Explore ZBPOWER lithium battery platforms for electric mobility, 12V lead-acid replacement and home energy storage."
+  image="/media/company/factory-aerial.jpg"
+>
+  <PageHero
+    eyebrow="Product platforms"
+    title="Battery systems for mobility, backup and storage."
+    description="Three production platforms, each configured around the application, enclosure and BMS requirements of the project."
+    image="/media/company/factory-aerial.jpg"
+    imageAlt="ZBPOWER manufacturing campus in Dongguan"
+    facts={[
+      { value: "3", label: "Core battery platforms" },
+      { value: "2,000+", label: "Packs produced daily" },
+      { value: "20+", label: "Countries and regions served" },
+      { value: "OEM / ODM", label: "Project support" },
+    ]}
+  />
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="site-container">
+      <div class="max-w-3xl">
+        <p class="eyebrow">Core product families</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl">Choose the platform closest to the application.</h2>
+        <p class="mt-5 text-base leading-7 text-[var(--color-muted)]">Detailed voltage, capacity, enclosure and BMS configuration is defined with our team for each OEM or ODM project.</p>
+      </div>
+
+      <div class="mt-11 grid gap-4 lg:grid-cols-3">
+        {products.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-surface)] py-16 sm:py-20">
+    <div class="site-container grid gap-8 border-y border-[var(--color-line)] py-10 lg:grid-cols-[1fr_.7fr] lg:items-center">
+      <div>
+        <p class="eyebrow">Custom configuration</p>
+        <h2 class="mt-4 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.045em] sm:text-4xl">No standard pack matches the project? Start from the requirement.</h2>
+        <p class="mt-4 max-w-2xl text-sm leading-7 text-[var(--color-muted)]">We review voltage, capacity, duty cycle, enclosure and communication before selecting the cell, BMS and assembly approach.</p>
+      </div>
+      <div class="flex flex-col gap-3 sm:flex-row lg:justify-end">
+        <a href="/oem-odm/" class="inline-flex min-h-12 items-center justify-center border border-[var(--color-ink)] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.16em] transition hover:bg-[var(--color-ink)] hover:text-white">See our process</a>
+        <a href="/contact/" class="inline-flex min-h-12 items-center justify-center bg-[var(--color-primary)] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white transition hover:bg-[var(--color-primary-dark)]">Discuss a project</a>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>

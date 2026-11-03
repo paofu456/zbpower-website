@@ -1,0 +1,64 @@
+---
+const applications = [
+  "Golf & utility carts",
+  "Mobility devices",
+  "Floor-care equipment",
+  "Ride-on vehicles",
+];
+
+const steps = [
+  { number: "01", title: "Application review", copy: "Voltage, capacity, duty cycle and mechanical fit." },
+  { number: "02", title: "Pack & BMS design", copy: "Chemistry, cell format, enclosure and protection." },
+  { number: "03", title: "Prototype validation", copy: "First-article build, capacity checks and aging." },
+  { number: "04", title: "Series production", copy: "Assembly, final test, packing and shipment." },
+];
+---
+
+<section id="applications" class="bg-white py-20 sm:py-24">
+  <div class="site-container grid gap-10 lg:grid-cols-[.88fr_1.12fr] lg:gap-16">
+    <div>
+      <p class="eyebrow">Application engineering</p>
+      <h2 class="mt-4 max-w-xl text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl">
+        Built around the way it works.
+      </h2>
+      <p class="mt-6 max-w-lg text-base leading-7 text-[var(--color-muted)]">
+        Battery voltage, capacity, enclosure and communication are matched to the real duty cycle of the vehicle or equipment — not a generic catalogue specification.
+      </p>
+
+      <div class="mt-9 grid grid-cols-2 border-t border-[var(--color-line)]">
+        {applications.map((application, index) => (
+          <div class="border-b border-[var(--color-line)] py-5 pr-4 odd:border-r odd:pr-6 even:pl-6">
+            <p class="text-[10px] font-bold tracking-[0.16em] text-[var(--color-primary)]">0{index + 1}</p>
+            <p class="mt-2 text-base font-semibold leading-6 tracking-[-0.02em]">{application}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div id="oem-odm" class="rounded-[var(--radius-card)] bg-[#07172c] p-7 text-white sm:p-10 lg:p-12">
+      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">OEM &amp; ODM</p>
+      <h3 class="mt-4 max-w-xl text-3xl font-semibold leading-[1.02] tracking-[-0.045em] sm:text-4xl">
+        From specification<br />to series production.
+      </h3>
+      <p class="mt-5 max-w-xl text-sm leading-7 text-white/60">
+        One team covers pack design, BMS integration, prototype validation, aging and volume assembly in Dongguan.
+      </p>
+
+      <ol class="mt-8 border-y border-white/15">
+        {steps.map((step) => (
+          <li class="grid gap-3 border-b border-white/10 py-4 last:border-b-0 sm:grid-cols-[3rem_1fr] sm:gap-5">
+            <span class="text-[10px] font-bold tracking-[0.16em] text-[var(--color-accent)]">{step.number}</span>
+            <div>
+              <h4 class="text-base font-semibold tracking-[-0.02em]">{step.title}</h4>
+              <p class="mt-1 text-xs leading-5 text-white/45">{step.copy}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <a href="/oem-odm/" class="mt-8 inline-flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white transition hover:text-[var(--color-accent)]">
+        Discuss your configuration <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</section>

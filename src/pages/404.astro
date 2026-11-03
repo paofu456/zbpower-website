@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { makePageTitle } from "../lib/seo";
+---
+
+<BaseLayout
+  title={makePageTitle("Page not found")}
+  description="The requested page could not be found. Return to the ZBPOWER home page or browse the product platforms."
+  noindex={true}
+>
+  <section class="flex min-h-[65vh] items-center bg-[#06172c] py-24 text-white sm:py-32">
+    <div class="site-container">
+      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">404 · Page not found</p>
+      <h1 class="mt-6 max-w-4xl text-5xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-7xl">This page is off the production line.</h1>
+      <p class="mt-6 max-w-xl text-base leading-8 text-white/60">The URL may have changed, or the page may no longer be available.</p>
+      <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+        <a href="/" class="inline-flex min-h-12 items-center justify-center bg-white px-6 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-[var(--color-ink)]">Return home</a>
+        <a href="/products/" class="inline-flex min-h-12 items-center justify-center border border-white/35 px-6 py-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white transition hover:border-white hover:bg-white/10">Browse products</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

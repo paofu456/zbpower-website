@@ -1,0 +1,103 @@
+---
+import company from "../../data/company.json";
+import { siteConfig } from "../../../site.config";
+
+const path = Astro.url.pathname;
+const isHome = path === "/";
+const isActive = (href: string) => href === "/" ? path === "/" : path.startsWith(href);
+---
+
+<header
+  class:list={[
+    "top-0 z-50 w-full text-white",
+    isHome
+      ? "absolute inset-x-0 border-b border-white/15 bg-gradient-to-b from-[#06172c]/95 via-[#06172c]/60 to-transparent"
+      : "sticky border-b border-white/10 bg-[#07172c]",
+  ]}
+>
+  <div class="site-container flex h-24 items-center justify-between gap-8">
+    <a href="/" aria-label={`${company.name} home`} class="shrink-0">
+      <img
+        src={company.logo}
+        alt={`${company.shortName} logo`}
+        width="2200"
+        height="355"
+        class="h-8 w-auto mix-blend-screen"
+      />
+    </a>
+
+    <nav aria-label="Primary navigation" class="hidden items-center gap-7 lg:flex xl:gap-9">
+      {siteConfig.navigation.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? "page" : undefined}
+          class:list={[
+            "border-b py-2 text-[10px] font-bold uppercase tracking-[0.16em] transition xl:text-[11px] xl:tracking-[0.18em]",
+            isActive(item.href)
+              ? "border-[var(--color-accent)] text-white"
+              : "border-transparent text-white/70 hover:border-white/50 hover:text-white",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href="/contact/"
+      class="hidden items-center gap-3 border border-white/35 px-5 py-3 text-[11px] font-bold uppercase tracking-[0.16em] transition hover:border-white hover:bg-white hover:text-[var(--color-ink)] lg:inline-flex"
+    >
+      Start a project <span aria-hidden="true">↗</span>
+    </a>
+
+    <button
+      id="menu-toggle"
+      type="button"
+      class="inline-flex h-11 w-11 items-center justify-center border border-white/30 bg-white/5 lg:hidden"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      aria-label="Open navigation"
+    >
+      <span aria-hidden="true" class="text-xl">☰</span>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#07172c] lg:hidden">
+    <div class="site-container flex flex-col py-4">
+      {siteConfig.navigation.map((item) => (
+        <a
+          href={item.href}
+          aria-current={isActive(item.href) ? "page" : undefined}
+          class:list={[
+            "border-b border-white/10 px-1 py-4 text-base font-bold last:border-0",
+            isActive(item.href) ? "text-[var(--color-accent)]" : "text-white",
+          ]}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</header>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#menu-toggle");
+  const menu = document.querySelector<HTMLElement>("#mobile-menu");
+
+  const closeMenu = () => {
+    menu?.classList.add("hidden");
+    button?.setAttribute("aria-expanded", "false");
+    button?.setAttribute("aria-label", "Open navigation");
+  };
+
+  button?.addEventListener("click", () => {
+    const willOpen = menu?.classList.contains("hidden") ?? false;
+    menu?.classList.toggle("hidden");
+    button?.setAttribute("aria-expanded", String(willOpen));
+    button?.setAttribute("aria-label", willOpen ? "Close navigation" : "Open navigation");
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMenu();
+  });
+</script>

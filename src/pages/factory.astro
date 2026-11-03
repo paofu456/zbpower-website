@@ -1,0 +1,116 @@
+---
+import ContactCta from "../components/sections/ContactCta.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { makePageTitle } from "../lib/seo";
+
+const metrics = [
+  { value: "14,000+", label: "m² manufacturing space" },
+  { value: "3 + 3", label: "Power & storage lines" },
+  { value: "30,000+", label: "Cells processed daily" },
+  { value: "2,000+", label: "Packs produced daily" },
+  { value: "600+", label: "Aging test points" },
+  { value: "10 + 4", label: "Laser & spot welders" },
+];
+
+const process = [
+  { title: "Incoming inspection", copy: "Inspect supplied cells, protection boards and other incoming materials before release to production." },
+  { title: "Cell grading", copy: "Grade and match cells before assembly to support consistent pack performance." },
+  { title: "Pack assembly", copy: "Build the pack around the released electrical, mechanical and BMS configuration." },
+  { title: "Aging & testing", copy: "Run charge-discharge aging, capacity checks and product testing before final release." },
+  { title: "Final inspection", copy: "Check the finished pack, workmanship and documentation before packing." },
+  { title: "Packing & shipment", copy: "Prepare the finished battery packs for the agreed shipment method and destination." },
+];
+
+const standards = ["ISO 9001", "EN 50604", "UL 2054 / UL 2271", "CE", "IEC", "UKCA", "RoHS", "UN38.3", "MSDS"];
+---
+
+<BaseLayout
+  title={makePageTitle("Factory & Quality")}
+  description="Inside ZBPOWER's Dongguan battery-pack factory: production capacity, testing, traceable supply chain and product certification."
+  image="/media/company/factory-aerial.jpg"
+>
+  <PageHero
+    eyebrow="Factory & quality"
+    title="Built in-house. Tested before it ships."
+    description="Cell selection, pack assembly, aging and finished-product testing stay under one quality system at our Dongguan production base."
+    image="/media/company/factory-aerial.jpg"
+    imageAlt="Aerial view of the ZBPOWER manufacturing campus"
+    facts={[
+      { value: "14,000+", label: "m² manufacturing" },
+      { value: "3 + 3", label: "Production lines" },
+      { value: "2,000+", label: "Packs per day" },
+      { value: "600+", label: "Aging test points" },
+    ]}
+  />
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="site-container grid items-stretch gap-4 lg:grid-cols-[1.04fr_.96fr]">
+      <div class="relative min-h-[440px] overflow-hidden rounded-[var(--radius-card)] lg:min-h-[560px]">
+        <img src="/media/company/production-line.jpg" alt="ZBPOWER battery pack production line" width="2039" height="1252" loading="lazy" class="absolute inset-0 h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,20,42,.82),transparent_58%)]"></div>
+        <p class="absolute inset-x-0 bottom-0 p-7 text-2xl font-semibold tracking-[-0.035em] text-white sm:p-10 sm:text-3xl">Power and storage packs assembled, aged and tested in Dongguan.</p>
+      </div>
+      <div class="rounded-[var(--radius-card)] bg-[var(--color-surface)] p-7 sm:p-10 lg:p-12">
+        <p class="eyebrow">Capacity</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">A factory built for repeat production.</h2>
+        <p class="mt-5 text-sm leading-7 text-[var(--color-muted)] sm:text-base sm:leading-8">Three power-battery lines and three storage-battery lines support OEM and ODM projects from first article through volume supply.</p>
+        <dl class="mt-8 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-[var(--color-line)] pt-7">
+          {metrics.map((metric) => (
+            <div>
+              <dt class="text-2xl font-semibold tracking-[-0.05em]">{metric.value}</dt>
+              <dd class="mt-1 text-[9px] font-bold uppercase leading-4 tracking-[0.13em] text-[var(--color-muted)]">{metric.label}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#07172c] py-20 text-white sm:py-24">
+    <div class="site-container">
+      <div class="grid gap-8 lg:grid-cols-[1fr_.65fr] lg:items-end">
+        <div>
+          <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">Production & quality flow</p>
+          <h2 class="mt-4 max-w-3xl text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl">Every pack follows the same release path.</h2>
+        </div>
+        <p class="max-w-lg text-sm leading-7 text-white/55 lg:justify-self-end">Incoming inspection, process checks and finished-product testing are defined around the production route rather than added after assembly.</p>
+      </div>
+      <ol class="mt-11 grid gap-x-8 border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
+        {process.map((step, index) => (
+          <li class="border-b border-white/15 py-6">
+            <span class="text-[10px] font-bold tracking-[0.16em] text-[var(--color-accent)]">0{index + 1}</span>
+            <h3 class="mt-3 text-xl font-semibold tracking-[-0.025em]">{step.title}</h3>
+            <p class="mt-2 text-sm leading-7 text-white/50">{step.copy}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="site-container grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
+      <div>
+        <p class="eyebrow">Supply chain & certification</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-5xl">Traceable inputs. Verified safety.</h2>
+        <p class="mt-5 text-base leading-7 text-[var(--color-muted)]">Core materials come from qualified suppliers and are stored under controlled temperature and humidity. Product certification scope and current validity are available on request.</p>
+        <img src="/media/company/production-line-alt.jpg" alt="Battery production equipment at ZBPOWER" width="1870" height="1280" loading="lazy" class="mt-8 aspect-[4/3] w-full rounded-[var(--radius-card)] object-cover" />
+      </div>
+      <div class="lg:pt-16">
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-muted)]">Quality & product standards</p>
+        <ul class="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
+          {standards.map((standard) => (
+            <li class="border border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-3 text-[10px] font-bold uppercase tracking-[0.1em]">{standard}</li>
+          ))}
+        </ul>
+        <div class="mt-9 grid gap-5 border-t border-[var(--color-line)] pt-7 sm:grid-cols-2">
+          <div><p class="text-3xl font-semibold tracking-[-0.05em]">24h</p><p class="mt-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">Controlled material storage</p></div>
+          <div><p class="text-3xl font-semibold tracking-[-0.05em]">6</p><p class="mt-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">Quality release stages</p></div>
+        </div>
+        <p class="mt-6 text-xs leading-5 text-[var(--color-muted)]">Not every certificate applies to every model. Confirm the applicable standard for the target market and product configuration.</p>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>

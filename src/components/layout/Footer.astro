@@ -1,0 +1,52 @@
+---
+import company from "../../data/company.json";
+import { siteConfig } from "../../../site.config";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-[#06172c] text-white">
+  <div class="site-container grid gap-14 py-16 md:grid-cols-[1.5fr_.7fr_1fr] md:py-20">
+    <div>
+      <a href="/" aria-label={`${company.name} home`} class="inline-flex">
+        <img
+          src={company.logo}
+          alt={`${company.shortName} logo`}
+          width="2200"
+          height="355"
+          class="h-9 w-auto mix-blend-screen"
+        />
+      </a>
+      <p class="mt-7 max-w-md text-sm leading-7 text-white/60">{company.description}</p>
+      <p class="mt-6 text-[11px] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">
+        Registered in Shenzhen · Manufacturing in Dongguan
+      </p>
+    </div>
+
+    <div>
+      <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">Explore</h2>
+      <ul class="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 text-sm text-white/75">
+        {siteConfig.navigation.map((item) => (
+          <li><a class="transition hover:text-white" href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] text-white/45">Contact</h2>
+      <ul class="mt-6 space-y-4 text-sm text-white/75">
+        <li><a class="transition hover:text-white" href={`mailto:${company.email}`}>{company.email}</a></li>
+        <li><a class="transition hover:text-white" href={`tel:${company.phone.replace(/\s/g, "")}`}>{company.phone}</a></li>
+        <li><a class="transition hover:text-white" href={`tel:${company.landline.replace(/\s/g, "")}`}>{company.landline}</a></li>
+        <li class="max-w-xs leading-7 text-white/55">{company.address}</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="site-container flex flex-col gap-3 py-6 text-[11px] uppercase tracking-[0.14em] text-white/35 sm:flex-row sm:items-center sm:justify-between">
+      <p>© {year} {company.name}</p>
+      <p>Lithium battery engineering · OEM / ODM</p>
+    </div>
+  </div>
+</footer>

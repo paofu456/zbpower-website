@@ -1,0 +1,14 @@
+:root {
+  --color-ink: #07172c;
+  --color-muted: #5f6f82;
+  --color-surface: #f4f7fb;
+  --color-card: #ffffff;
+  --color-line: #dbe4ef;
+  --color-primary: #0b4aa2;
+  --color-primary-dark: #073572;
+  --color-accent: #28a8ff;
+  --font-heading: "Helvetica Neue", "Arial", sans-serif;
+  --font-body: "Helvetica Neue", "Arial", sans-serif;
+  --shadow-card: 0 24px 70px rgba(7, 23, 44, 0.1);
+  --radius-card: 0.85rem;
+}

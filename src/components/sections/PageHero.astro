@@ -1,0 +1,47 @@
+---
+interface Fact {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  image?: string;
+  imageAlt?: string;
+  facts?: Fact[];
+}
+
+const { eyebrow, title, description, image, imageAlt = "", facts = [] } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-[#06172c] text-white">
+  {image && (
+    <>
+      <img src={image} alt={imageAlt} width="2000" height="1100" class="absolute inset-0 h-full w-full object-cover" />
+      <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,18,38,.97)_0%,rgba(4,18,38,.88)_48%,rgba(4,18,38,.46)_100%)]"></div>
+      <div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(4,18,38,.9)_0%,rgba(4,18,38,.12)_70%,rgba(4,18,38,.3)_100%)]"></div>
+    </>
+  )}
+  <div class="absolute inset-0 opacity-15 [background-image:linear-gradient(rgba(255,255,255,.09)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.09)_1px,transparent_1px)] [background-size:72px_72px]"></div>
+
+  <div class="site-container relative flex min-h-[470px] flex-col justify-end py-16 sm:min-h-[520px] sm:py-20">
+    <p class="flex items-center gap-4 text-[10px] font-bold uppercase tracking-[0.2em] text-white/60">
+      <span class="h-px w-12 bg-[var(--color-accent)]"></span>{eyebrow}
+    </p>
+    <h1 class="mt-6 max-w-5xl text-[clamp(3rem,5.5vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.06em]">{title}</h1>
+    <p class="mt-6 max-w-2xl text-base leading-8 text-white/65 sm:text-lg">{description}</p>
+
+    {facts.length > 0 && (
+      <dl class="mt-10 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-6 border-t border-white/20 pt-6 sm:grid-cols-4">
+        {facts.map((fact) => (
+          <div>
+            <dt class="text-2xl font-semibold tracking-[-0.05em]">{fact.value}</dt>
+            <dd class="mt-1 text-[9px] font-bold uppercase tracking-[0.15em] text-white/45">{fact.label}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+  </div>
+</section>

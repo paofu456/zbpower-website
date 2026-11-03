@@ -1,0 +1,120 @@
+---
+import ContactCta from "../components/sections/ContactCta.astro";
+import PageHero from "../components/sections/PageHero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { makePageTitle } from "../lib/seo";
+
+const milestones = [
+  {
+    period: "2011–2012",
+    title: "Starting point",
+    copy: "Began with battery trading, then established ZBPOWER and moved into digital lithium batteries and power-tool packs.",
+  },
+  {
+    period: "2013–2014",
+    title: "Product development",
+    copy: "Developed triangular lithium packs, introduced 12V LiFePO4 replacement batteries and added enclosure patents.",
+  },
+  {
+    period: "2015–2019",
+    title: "Manufacturing upgrade",
+    copy: "Relocated production, introduced automatic sorting and test equipment, and implemented the ISO quality management system.",
+  },
+  {
+    period: "2019–2020",
+    title: "Dongguan base",
+    copy: "Established the Dongguan company, moved to Tangxia and added a laboratory plus aging and testing equipment.",
+  },
+  {
+    period: "2021–2026",
+    title: "Mobility and storage",
+    copy: "Expanded into e-bike, electric wheelchair and e-motorcycle packs, then moved into a garden-style standalone production base in Tangxia.",
+  },
+];
+
+const globalLocations = [
+  { place: "Shenzhen, China", role: "Headquarters" },
+  { place: "Dongguan, China", role: "Manufacturing base" },
+  { place: "France", role: "ZBPOWER France" },
+  { place: "Pakistan", role: "ZBPOWER Pakistan" },
+  { place: "Central & Eastern Europe", role: "Technical support & service" },
+];
+---
+
+<BaseLayout
+  title={makePageTitle("About")}
+  description="Learn about ZBPOWER's history, battery engineering focus, manufacturing base, patents and global service network."
+  image="/media/company/factory-aerial.jpg"
+>
+  <PageHero
+    eyebrow="About ZBPOWER"
+    title="Lithium battery engineering since 2012."
+    description="A national high-tech enterprise focused on mobility batteries, lead-acid replacement and home energy storage, with production in Dongguan."
+    image="/media/company/factory-aerial.jpg"
+    imageAlt="ZBPOWER manufacturing campus in Dongguan"
+    facts={[
+      { value: "2012", label: "Founded" },
+      { value: "14+", label: "Years in lithium" },
+      { value: "14,000+", label: "m² manufacturing" },
+      { value: "20+", label: "Countries served" },
+    ]}
+  />
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="site-container grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-20">
+      <div>
+        <p class="eyebrow">Company profile</p>
+        <h2 class="mt-4 max-w-3xl text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl">Engineering, production and testing under one roof.</h2>
+        <div class="prose-site mt-6 max-w-2xl">
+          <p>ZBPOWER brings cell selection, pack design, assembly, aging and testing together at its Dongguan production base. The company supports OEM and ODM customers across electric mobility, lead-acid replacement and home energy storage.</p>
+          <p>The product and engineering teams work from the application requirement through the released production configuration, so technical decisions stay connected to manufacturing.</p>
+        </div>
+        <p class="mt-8 text-sm font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">Smart Power, Go Further.</p>
+      </div>
+      <dl class="grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-line)]">
+        <div class="bg-[var(--color-surface)] p-7"><dt class="text-4xl font-semibold tracking-[-0.055em]">2012</dt><dd class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">Company founded</dd></div>
+        <div class="bg-[var(--color-surface)] p-7"><dt class="text-4xl font-semibold tracking-[-0.055em]">100</dt><dd class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">Team members</dd></div>
+        <div class="bg-[var(--color-surface)] p-7"><dt class="text-4xl font-semibold tracking-[-0.055em]">20+</dt><dd class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">R&D staff</dd></div>
+        <div class="bg-[var(--color-surface)] p-7"><dt class="text-4xl font-semibold tracking-[-0.055em]">24</dt><dd class="mt-2 text-[9px] font-bold uppercase tracking-[0.14em] text-[var(--color-muted)]">Patent applications</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-surface)] py-20 sm:py-24">
+    <div class="site-container">
+      <div class="max-w-3xl">
+        <p class="eyebrow">Development</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl">From battery trading to integrated manufacturing.</h2>
+      </div>
+      <ol class="mt-10 border-t border-[var(--color-line)]">
+        {milestones.map((milestone) => (
+          <li class="grid gap-3 border-b border-[var(--color-line)] py-6 sm:grid-cols-[8rem_16rem_1fr] sm:gap-8">
+            <span class="text-[10px] font-bold tracking-[0.15em] text-[var(--color-primary)]">{milestone.period}</span>
+            <h3 class="text-xl font-semibold tracking-[-0.03em]">{milestone.title}</h3>
+            <p class="max-w-2xl text-sm leading-7 text-[var(--color-muted)]">{milestone.copy}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bg-[#07172c] py-20 text-white sm:py-24">
+    <div class="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">Global network</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-5xl">Local support across 20+ markets.</h2>
+        <p class="mt-5 max-w-lg text-sm leading-7 text-white/55">ZBPOWER serves customers across Europe, North America, Asia Pacific, Africa and Oceania, with service touchpoints in France, Pakistan and Central &amp; Eastern Europe.</p>
+      </div>
+      <ul class="border-t border-white/15">
+        {globalLocations.map((location) => (
+          <li class="flex items-center justify-between gap-6 border-b border-white/15 py-5">
+            <span class="text-lg font-semibold tracking-[-0.02em]">{location.place}</span>
+            <span class="text-right text-[9px] font-bold uppercase tracking-[0.14em] text-white/40">{location.role}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <ContactCta />
+</BaseLayout>

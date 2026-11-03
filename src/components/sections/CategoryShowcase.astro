@@ -1,0 +1,79 @@
+---
+const categories = [
+  {
+    index: "01",
+    label: "Electric mobility",
+    title: "E-bike & e-motorcycle packs",
+    copy: "High-energy packs engineered for range, safety and long service life in electric two-wheelers and light EVs.",
+    facts: ["E-bike", "E-scooter", "E-motorcycle"],
+    href: "/products/e-bike-battery-packs/",
+    image: "/media/products/ebike-battery.jpg",
+    alt: "ZBPOWER e-bike lithium battery pack",
+  },
+  {
+    index: "02",
+    label: "Lead-acid replacement",
+    title: "12V LiFePO4 batteries",
+    copy: "Drop-in lithium options for two- and three-wheelers, UPS backup and off-grid solar systems.",
+    facts: ["UPS backup", "Off-grid solar", "12V systems"],
+    href: "/products/12v-lifepo4-replacement/",
+    image: "/media/products/lifepo4-replacement.jpg",
+    alt: "ZBPOWER LiFePO4 replacement battery",
+  },
+  {
+    index: "03",
+    label: "Home energy storage",
+    title: "Wall-mounted & stackable storage",
+    copy: "Reliable, long-cycle systems for residential and small commercial energy storage.",
+    facts: ["Residential ESS", "Stackable systems", "C&I storage"],
+    href: "/products/home-energy-storage/",
+    image: "/media/products/home-storage.jpg",
+    alt: "ZBPOWER stackable home energy storage battery",
+  },
+];
+---
+
+<section id="products" class="bg-[var(--color-surface)] py-20 sm:py-24">
+  <div class="site-container">
+    <div class="grid items-end gap-7 lg:grid-cols-[1fr_.7fr]">
+      <div>
+        <p class="eyebrow">Product platforms</p>
+        <h2 class="mt-4 max-w-4xl text-4xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl">
+          Three platforms.<br />One engineering partner.
+        </h2>
+      </div>
+      <p class="max-w-lg text-base leading-7 text-[var(--color-muted)] lg:justify-self-end">
+        Mobility, lead-acid replacement and home storage — each platform is matched to its application, enclosure and BMS requirements.
+      </p>
+    </div>
+
+    <div class="mt-11 grid gap-4 lg:grid-cols-3">
+      {categories.map((category, index) => (
+        <article class="group flex flex-col overflow-hidden rounded-[var(--radius-card)] bg-[#07172c] text-white">
+          <a href={category.href} class="flex flex-1 flex-col">
+          <div class="relative aspect-[4/3] overflow-hidden bg-[#eaf1f8] p-6">
+            <img
+              src={category.image}
+              alt={category.alt}
+              width="583"
+              height="404"
+              loading={index === 0 ? "eager" : "lazy"}
+              class="h-full w-full object-contain transition duration-700 group-hover:scale-[1.03]"
+            />
+            <span class="absolute left-5 top-5 text-[10px] font-bold tracking-[0.18em] text-[var(--color-ink)]/35">0{index + 1}</span>
+          </div>
+          <div class="flex flex-1 flex-col p-6 sm:p-7">
+            <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">{category.label}</p>
+            <h3 class="mt-3 text-2xl font-semibold leading-tight tracking-[-0.04em]">{category.title}</h3>
+            <p class="mt-3 text-sm leading-6 text-white/60">{category.copy}</p>
+            <ul class="mt-auto flex flex-wrap gap-x-4 gap-y-2 border-t border-white/15 pt-5 text-[9px] font-bold uppercase tracking-[0.14em] text-white/40">
+              {category.facts.map((fact) => <li>{fact}</li>)}
+            </ul>
+            <span class="mt-5 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-accent)]">Explore platform <span aria-hidden="true">↗</span></span>
+          </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

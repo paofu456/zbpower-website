@@ -1,0 +1,46 @@
+---
+import company from "../../data/company.json";
+
+const regions = ["Europe", "North America", "Asia Pacific", "Africa & Oceania"];
+---
+
+<section id="contact" class="bg-[var(--color-primary)] py-20 text-white sm:py-24">
+  <div class="site-container grid gap-12 lg:grid-cols-[1.15fr_.85fr] lg:gap-20">
+    <div>
+      <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-white/55">Start a battery project</p>
+      <h2 class="mt-5 max-w-3xl text-4xl font-semibold leading-[0.95] tracking-[-0.055em] sm:text-6xl">
+        Tell us what<br />you're building.
+      </h2>
+      <p class="mt-5 max-w-xl text-base leading-7 text-white/65">
+        Share the application, target voltage and capacity. Our team will review the specification and recommend the right pack platform.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <a
+          href={`mailto:${company.email}?subject=Battery%20project%20enquiry`}
+          class="inline-flex min-h-13 items-center justify-center gap-5 bg-white px-7 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)] transition hover:bg-[var(--color-accent)] hover:text-[var(--color-ink)]"
+        >
+          Discuss your project <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href={`tel:${company.phone.replace(/\s/g, "")}`}
+          class="inline-flex min-h-13 items-center justify-center border border-white/35 px-7 py-4 text-[10px] font-bold uppercase tracking-[0.18em] text-white transition hover:border-white hover:bg-white/10"
+        >
+          {company.phone}
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-white/20 pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
+      <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-white/45">Serving 20+ countries and regions</p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        {regions.map((region) => (
+          <span class="border border-white/20 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-white/70">{region}</span>
+        ))}
+      </div>
+      <div class="mt-8 space-y-3 border-t border-white/15 pt-6 text-sm leading-6 text-white/60">
+        <p><a class="transition hover:text-white" href={`mailto:${company.email}`}>{company.email}</a></p>
+        <p>{company.address}</p>
+      </div>
+    </div>
+  </div>
+</section>

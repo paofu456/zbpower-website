@@ -1,0 +1,22 @@
+---
+interface ProductImage {
+  src: string;
+  alt: string;
+}
+
+interface Props {
+  images: ProductImage[];
+}
+
+const { images } = Astro.props;
+---
+
+<div class="overflow-hidden rounded-[var(--radius-card)] bg-[#eaf1f8] p-8 sm:p-10">
+  <img
+    src={images[0].src}
+    alt={images[0].alt}
+    width="800"
+    height="620"
+    class="aspect-[4/3] h-auto w-full object-contain"
+  />
+</div>

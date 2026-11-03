@@ -1,0 +1,20 @@
+---
+import CapabilitiesSection from "../components/sections/CapabilitiesSection.astro";
+import CategoryShowcase from "../components/sections/CategoryShowcase.astro";
+import ContactCta from "../components/sections/ContactCta.astro";
+import FactorySection from "../components/sections/FactorySection.astro";
+import Hero from "../components/sections/Hero.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="ZBPOWER | Lithium Battery Packs for Mobility & Storage"
+  description="OEM & ODM lithium battery packs for e-bikes, e-motorcycles, lead-acid replacement and home energy storage. Engineered and manufactured in Dongguan, China."
+  image="/media/company/factory-aerial.jpg"
+>
+  <Hero />
+  <CategoryShowcase />
+  <CapabilitiesSection />
+  <FactorySection />
+  <ContactCta />
+</BaseLayout>

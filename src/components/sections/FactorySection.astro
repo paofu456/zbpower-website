@@ -1,0 +1,61 @@
+---
+const metrics = [
+  { value: "3 + 3", label: "Power & storage lines" },
+  { value: "30,000+", label: "Cells processed daily" },
+  { value: "600+", label: "Aging test points" },
+  { value: "24", label: "Patent applications" },
+];
+
+const standards = ["ISO 9001", "EN 50604", "UL 2054 / UL 2271"];
+---
+
+<section id="factory" class="bg-[var(--color-surface)] py-20 sm:py-24">
+  <div class="site-container grid items-stretch gap-4 lg:grid-cols-[1.08fr_.92fr]">
+    <div class="relative min-h-[460px] overflow-hidden rounded-[var(--radius-card)] bg-[#0a2241] lg:min-h-[600px]">
+      <img
+        src="/media/company/production-line.jpg"
+        alt="ZBPOWER battery pack production line in Dongguan"
+        width="2039"
+        height="1252"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+      <div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(5,20,42,.84),transparent_58%)]"></div>
+      <div class="absolute inset-x-0 bottom-0 p-7 text-white sm:p-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--color-accent)]">Dongguan · Guangdong · China</p>
+        <p class="mt-3 max-w-lg text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">14,000+ m² of battery-pack manufacturing and testing space.</p>
+      </div>
+    </div>
+
+    <div class="flex flex-col justify-between rounded-[var(--radius-card)] bg-white p-7 sm:p-10 lg:p-12">
+      <div>
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">Founded 2012 · National high-tech enterprise</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-5xl">
+          Built in-house.<br />Tested before it ships.
+        </h2>
+        <p class="mt-5 max-w-lg text-sm leading-7 text-[var(--color-muted)] sm:text-base sm:leading-8">
+          Cell selection, pack assembly, aging and final testing stay under one quality system at our Dongguan production base.
+        </p>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-x-6 gap-y-7 border-y border-[var(--color-line)] py-7">
+        {metrics.map((metric) => (
+          <div>
+            <p class="text-3xl font-semibold tracking-[-0.05em] text-[var(--color-ink)]">{metric.value}</p>
+            <p class="mt-1 text-[10px] font-bold uppercase leading-5 tracking-[0.13em] text-[var(--color-muted)]">{metric.label}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-7">
+        <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[var(--color-muted)]">Quality framework</p>
+        <ul class="mt-3 flex flex-wrap gap-2">
+          {standards.map((standard) => (
+            <li class="border border-[var(--color-line)] bg-[var(--color-surface)] px-3 py-2 text-[9px] font-bold uppercase tracking-[0.1em] text-[var(--color-ink)]">{standard}</li>
+          ))}
+        </ul>
+        <p class="mt-3 text-xs leading-5 text-[var(--color-muted)]">Certification scope and current validity are available on request.</p>
+      </div>
+    </div>
+  </div>
+</section>

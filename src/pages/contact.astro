@@ -1,0 +1,91 @@
+---
+import PageHero from "../components/sections/PageHero.astro";
+import company from "../data/company.json";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { makePageTitle } from "../lib/seo";
+
+const phoneHref = company.phone.replace(/\s/g, "");
+const landlineHref = company.landline.replace(/\s/g, "");
+const inquirySubject = encodeURIComponent("Battery project enquiry");
+const inquiryBody = encodeURIComponent(`Application:\nTarget voltage / capacity:\nEnclosure or installation constraints:\nExpected annual volume:\nTarget market and required certification:\nProject timeline:\n`);
+
+const inputs = [
+  "The equipment or storage application",
+  "Target voltage, capacity and discharge profile",
+  "Available enclosure space or mounting method",
+  "Expected annual volume and first-order quantity",
+  "Target market and required certification",
+  "Project timeline and current development stage",
+];
+---
+
+<BaseLayout
+  title={makePageTitle("Contact")}
+  description="Contact ZBPOWER to discuss an OEM or ODM lithium battery project, request product information or arrange a factory visit."
+  image="/media/company/factory-aerial.jpg"
+>
+  <PageHero
+    eyebrow="Contact"
+    title="Tell us what you're building."
+    description="Share the application and battery requirement. Our team will review the specification and identify the next technical step."
+    image="/media/company/factory-aerial.jpg"
+    imageAlt="ZBPOWER manufacturing campus in Dongguan"
+    facts={[
+      { value: "China", label: "Manufacturing base" },
+      { value: "France", label: "European presence" },
+      { value: "Pakistan", label: "Regional office" },
+      { value: "20+", label: "Markets served" },
+    ]}
+  />
+
+  <section class="bg-white py-20 sm:py-24">
+    <div class="site-container grid gap-4 lg:grid-cols-2">
+      <a href={`mailto:${company.email}?subject=${inquirySubject}&body=${inquiryBody}`} class="group rounded-[var(--radius-card)] bg-[#07172c] p-8 text-white transition hover:-translate-y-1 hover:shadow-[var(--shadow-card)] sm:p-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-accent)]">Email · preferred for technical briefs</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em]">Send a project inquiry</h2>
+        <p class="mt-3 break-all text-sm leading-7 text-white/60">{company.email}</p>
+        <span class="mt-7 inline-flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.16em] text-white">Open email <span aria-hidden="true">↗</span></span>
+      </a>
+
+      <div class="rounded-[var(--radius-card)] bg-[var(--color-surface)] p-8 sm:p-10">
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">Direct contact</p>
+        <h2 class="mt-4 text-3xl font-semibold tracking-[-0.04em]">Speak with our team</h2>
+        <div class="mt-6 space-y-4 border-t border-[var(--color-line)] pt-5">
+          <a href={`tel:${phoneHref}`} class="flex items-center justify-between gap-5 text-sm text-[var(--color-muted)] transition hover:text-[var(--color-primary)]"><span>Mobile</span><span class="font-semibold">{company.phone}</span></a>
+          <a href={`tel:${landlineHref}`} class="flex items-center justify-between gap-5 border-t border-[var(--color-line)] pt-4 text-sm text-[var(--color-muted)] transition hover:text-[var(--color-primary)]"><span>Factory landline</span><span class="font-semibold">{company.landline}</span></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-container mt-4 grid gap-4 md:grid-cols-2">
+      <div class="rounded-[var(--radius-card)] border border-[var(--color-line)] p-7 sm:p-9">
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">Manufacturing base</p>
+        <h3 class="mt-3 text-2xl font-semibold tracking-[-0.035em]">Dongguan · Guangdong</h3>
+        <p class="mt-3 text-sm leading-7 text-[var(--color-muted)]">{company.address}</p>
+      </div>
+      <div class="rounded-[var(--radius-card)] border border-[var(--color-line)] p-7 sm:p-9">
+        <p class="text-[10px] font-bold uppercase tracking-[0.18em] text-[var(--color-primary)]">Head office</p>
+        <h3 class="mt-3 text-2xl font-semibold tracking-[-0.035em]">Shenzhen · Guangdong</h3>
+        <p class="mt-3 text-sm leading-7 text-[var(--color-muted)]">{company.officeAddress}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[var(--color-surface)] py-20 sm:py-24">
+    <div class="site-container grid gap-12 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+      <div>
+        <p class="eyebrow">A useful first message</p>
+        <h2 class="mt-4 text-4xl font-semibold leading-[0.96] tracking-[-0.055em] sm:text-5xl">What to include in the brief.</h2>
+        <p class="mt-5 max-w-lg text-sm leading-7 text-[var(--color-muted)]">You do not need a complete specification to start. Provide what is known and our team will identify the remaining technical questions.</p>
+      </div>
+      <ol class="border-t border-[var(--color-line)] sm:grid sm:grid-cols-2 sm:gap-x-8">
+        {inputs.map((input, index) => (
+          <li class="flex gap-5 border-b border-[var(--color-line)] py-5">
+            <span class="text-[10px] font-bold tracking-[0.16em] text-[var(--color-primary)]">0{index + 1}</span>
+            <span class="text-base font-semibold leading-6 tracking-[-0.02em]">{input}</span>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+</BaseLayout>
