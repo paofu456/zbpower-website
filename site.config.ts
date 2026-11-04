@@ -1,8 +1,8 @@
 export const siteConfig = {
   language: "en",
   locale: "en_US",
-  siteUrl: undefined as string | undefined,
-  siteMode: "local" as "local" | "production",
+  siteUrl: "https://zb.fuliang.online" as string | undefined,
+  siteMode: "production" as "local" | "production",
   contentStatus: "ready" as "demo" | "draft" | "ready",
   navigation: [
     { label: "Products", href: "/products/" },

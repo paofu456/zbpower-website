@@ -10,7 +10,7 @@ interface Props {
 
 const { title, description, image, noindex = false } = Astro.props;
 const shouldIndex = siteConfig.siteMode === "production" && !noindex;
-const canonical = siteConfig.siteUrl ? new URL(Astro.url.pathname, siteConfig.siteUrl).toString() : undefined;
+const canonical = shouldIndex && siteConfig.siteUrl ? new URL(Astro.url.pathname, siteConfig.siteUrl).toString() : undefined;
 const socialImage = image && siteConfig.siteUrl ? new URL(image, siteConfig.siteUrl).toString() : undefined;
 ---
 
